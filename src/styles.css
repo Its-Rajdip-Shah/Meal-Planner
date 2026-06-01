@@ -11,31 +11,55 @@
 body {
   margin: 0;
   min-width: 320px;
+  background: #513a24;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url("../Assets/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background:
-    radial-gradient(circle at top left, rgba(16, 185, 129, 0.2), transparent 34rem),
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 32rem),
-    linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+    linear-gradient(135deg, rgba(33, 21, 11, 0.88), rgba(81, 58, 36, 0.72)),
+    radial-gradient(circle at top left, rgba(255, 251, 182, 0.18), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(212, 162, 98, 0.2), transparent 30rem);
+  content: "";
+}
+
+#root {
+  position: relative;
+  z-index: 0;
 }
 
 @layer components {
   .glass-panel {
-    @apply rounded-lg border border-white/10 bg-white/[0.08] shadow-2xl shadow-slate-950/40 backdrop-blur-xl;
+    @apply rounded-lg border border-[#d4a262]/30 bg-[#513a24]/70 shadow-2xl shadow-[#21150b]/50 backdrop-blur-xl;
   }
 
   .glass-card {
-    @apply rounded-lg border border-white/10 bg-white/[0.06] shadow-xl shadow-slate-950/30 backdrop-blur;
+    @apply rounded-lg border border-[#d4a262]/25 bg-[#513a24]/55 shadow-xl shadow-[#21150b]/35 backdrop-blur;
   }
 
   .primary-button {
-    @apply min-h-11 rounded-md border border-emerald-300/40 bg-emerald-400/15 px-4 py-2 text-sm font-medium text-emerald-50 transition hover:bg-emerald-400/25 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply min-h-11 rounded-md border border-[#fffbb6]/45 bg-[#d4a262]/30 px-4 py-2 text-sm font-semibold text-[#fffbb6] transition hover:bg-[#d4a262]/45 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .secondary-button {
-    @apply min-h-11 rounded-md border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/[0.14] disabled:cursor-not-allowed disabled:opacity-60;
+    @apply min-h-11 rounded-md border border-[#d4a262]/30 bg-[#bb8f67]/20 px-4 py-2 text-sm font-medium text-[#fffbb6] transition hover:bg-[#bb8f67]/30 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .danger-button {
-    @apply min-h-11 rounded-md border border-red-300/30 bg-red-400/10 px-4 py-2 text-sm font-medium text-red-100 transition hover:bg-red-400/20 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply min-h-11 rounded-md border border-red-300/50 bg-red-700/35 px-4 py-2 text-sm font-semibold text-red-50 transition hover:bg-red-700/50 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .status-pill {

@@ -436,17 +436,17 @@ export default function Planner() {
   return (
     <div className="grid gap-6">
       <section className="glass-panel overflow-hidden">
-        <div className="border-b border-white/10 bg-white/[0.04] p-4 sm:p-5">
+        <div className="border-b border-[#d4a262]/25 bg-[#513a24]/45 p-4 sm:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4a262]">
                 Planner
               </p>
-              <h2 className="mt-1 text-2xl font-semibold text-white">14-day calendar</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+              <h2 className="mt-1 text-2xl font-semibold text-[#fffbb6]">14-day calendar</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[#fffbb6]/80">
                 Select meals from Supabase. Serving spans are read from the `dishes.servings` column.
               </p>
-              <p className="mt-2 text-xs text-slate-400">Signed in as {user?.email}</p>
+              <p className="mt-2 text-xs text-[#d4a262]/85">Signed in as {user?.email}</p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
               <button className="secondary-button" disabled={loading || saving} onClick={handleRefreshData} type="button">
@@ -463,23 +463,23 @@ export default function Planner() {
 
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             <div className="glass-card p-3">
-              <p className="text-xs uppercase tracking-wide text-slate-400">Dishes</p>
-              <p className="mt-1 text-2xl font-semibold text-white">{dishes.length}</p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="text-xs uppercase tracking-wide text-[#d4a262]/80">Dishes</p>
+              <p className="mt-1 text-2xl font-semibold text-[#fffbb6]">{dishes.length}</p>
+              <p className="mt-1 text-xs text-[#fffbb6]/60">
                 {loading ? 'Loading menu...' : loadErrors.dishes ? 'Needs attention' : 'Ready'}
               </p>
             </div>
             <div className="glass-card p-3">
-              <p className="text-xs uppercase tracking-wide text-slate-400">Planned cells</p>
-              <p className="mt-1 text-2xl font-semibold text-white">{cells.length}</p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="text-xs uppercase tracking-wide text-[#d4a262]/80">Planned cells</p>
+              <p className="mt-1 text-2xl font-semibold text-[#fffbb6]">{cells.length}</p>
+              <p className="mt-1 text-xs text-[#fffbb6]/60">
                 {loading ? 'Loading planner...' : loadErrors.cells ? 'Needs attention' : 'Saved in Supabase'}
               </p>
             </div>
             <div className="glass-card p-3">
-              <p className="text-xs uppercase tracking-wide text-slate-400">Grocery items</p>
-              <p className="mt-1 text-2xl font-semibold text-white">{groceryItemCount}</p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="text-xs uppercase tracking-wide text-[#d4a262]/80">Grocery items</p>
+              <p className="mt-1 text-2xl font-semibold text-[#fffbb6]">{groceryItemCount}</p>
+              <p className="mt-1 text-xs text-[#fffbb6]/60">
                 {loading ? 'Preparing list...' : loadErrors.grocery ? 'Needs attention' : 'From cooking events'}
               </p>
             </div>
@@ -503,30 +503,30 @@ export default function Planner() {
 
         <div className="p-4 sm:p-5">
           <div className="mb-4 flex flex-wrap gap-2 text-xs">
-            <span className="status-pill border-emerald-300/30 bg-emerald-400/15 text-emerald-100">
+            <span className="status-pill border-[#d4a262]/60 bg-[#d4a262]/20 text-[#fffbb6]">
               Cook
             </span>
-            <span className="status-pill border-cyan-300/30 bg-cyan-400/15 text-cyan-100">
+            <span className="status-pill border-[#cc915c]/60 bg-[#cc915c]/20 text-[#fffbb6]">
               Leftover
             </span>
-            <span className="status-pill border-white/10 bg-white/[0.05] text-slate-300">
+            <span className="status-pill border-[#d4a262]/25 bg-[#513a24]/45 text-[#fffbb6]/75">
               Empty
             </span>
           </div>
 
           {loading ? (
             <div className="grid gap-3">
-              <div className="h-12 animate-pulse rounded-lg bg-white/10" />
-              <div className="h-24 animate-pulse rounded-lg bg-white/[0.07]" />
-              <div className="h-24 animate-pulse rounded-lg bg-white/[0.05]" />
+              <div className="h-12 animate-pulse rounded-lg bg-[#d4a262]/15" />
+              <div className="h-24 animate-pulse rounded-lg bg-[#bb8f67]/15" />
+              <div className="h-24 animate-pulse rounded-lg bg-[#513a24]/35" />
             </div>
           ) : (
             <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-5 sm:px-5">
-              <div className="min-w-[980px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/20">
-                <div className="grid grid-cols-[190px_repeat(4,minmax(170px,1fr))] bg-white/[0.08] text-xs font-semibold uppercase tracking-wide text-slate-300">
-                  <div className="border-r border-white/10 p-3">Day</div>
+              <div className="min-w-[980px] overflow-hidden rounded-lg border border-[#d4a262]/25 bg-[#513a24]/35">
+                <div className="grid grid-cols-[190px_repeat(4,minmax(170px,1fr))] bg-[#d4a262]/18 text-xs font-semibold uppercase tracking-wide text-[#fffbb6]">
+                  <div className="border-r border-[#d4a262]/25 p-3">Day</div>
                   {SLOTS.map((slot) => (
-                    <div className="border-r border-white/10 p-3 last:border-r-0" key={slot.key}>
+                    <div className="border-r border-[#d4a262]/25 p-3 last:border-r-0" key={slot.key}>
                       {slot.label}
                     </div>
                   ))}
@@ -534,12 +534,12 @@ export default function Planner() {
 
                 {DAYS.map((day) => (
                   <div
-                    className="grid grid-cols-[190px_repeat(4,minmax(170px,1fr))] border-t border-white/10"
+                    className="grid grid-cols-[190px_repeat(4,minmax(170px,1fr))] border-t border-[#d4a262]/20"
                     key={day.dayIndex}
                   >
-                    <div className="border-r border-white/10 bg-slate-950/35 p-3">
-                      <p className="text-sm font-semibold text-slate-100">{day.weekday}</p>
-                      <p className="mt-1 text-xs text-slate-500">Week {day.weekNumber}</p>
+                    <div className="border-r border-[#d4a262]/20 bg-[#513a24]/55 p-3">
+                      <p className="text-sm font-semibold text-[#fffbb6]">{day.weekday}</p>
+                      <p className="mt-1 text-xs text-[#d4a262]/80">Week {day.weekNumber}</p>
                     </div>
                     {SLOTS.map((slot) => {
                       const cell = cellsByKey.get(cellKey(day.dayIndex, slot.key));
@@ -548,12 +548,12 @@ export default function Planner() {
 
                       return (
                         <button
-                          className={`group min-h-[86px] border-r border-white/10 p-3 text-left transition last:border-r-0 focus:outline-none focus:ring-2 focus:ring-emerald-300/40 ${
+                          className={`group min-h-[86px] border-r border-[#d4a262]/20 p-3 text-left transition last:border-r-0 focus:outline-none focus:ring-2 focus:ring-[#d4a262]/50 ${
                             cell
                               ? cell.is_auto_filled
-                                ? 'bg-cyan-400/[0.08] hover:bg-cyan-400/[0.16]'
-                                : 'bg-emerald-400/[0.10] hover:bg-emerald-400/[0.18]'
-                              : 'bg-white/[0.025] hover:bg-white/[0.08]'
+                                ? 'bg-[#cc915c]/18 hover:bg-[#cc915c]/28'
+                                : 'bg-[#d4a262]/18 hover:bg-[#d4a262]/28'
+                              : 'bg-[#513a24]/35 hover:bg-[#bb8f67]/18'
                           }`}
                           key={slot.key}
                           onClick={() => openMealSelector(day, slot)}
@@ -562,7 +562,7 @@ export default function Planner() {
                           {cell ? (
                             <span className="flex h-full flex-col justify-between gap-3">
                               <span className="block">
-                                <span className="block text-sm font-semibold leading-5 text-slate-50">
+                                <span className="block text-sm font-semibold leading-5 text-[#fffbb6]">
                                   {cell.dish?.name ?? 'Unknown dish'}
                                 </span>
                               </span>
@@ -570,21 +570,21 @@ export default function Planner() {
                                 <span
                                   className={`status-pill ${
                                     cell.is_auto_filled
-                                      ? 'border-cyan-300/30 bg-cyan-400/15 text-cyan-100'
-                                      : 'border-emerald-300/30 bg-emerald-400/15 text-emerald-100'
+                                      ? 'border-[#cc915c]/70 bg-[#cc915c]/25 text-[#fffbb6]'
+                                      : 'border-[#d4a262]/70 bg-[#d4a262]/25 text-[#fffbb6]'
                                   }`}
                                 >
                                   {cellBadge}
                                 </span>
                                 {servings && (
-                                  <span className="status-pill border-white/10 bg-white/[0.06] text-slate-300">
+                                  <span className="status-pill border-[#fffbb6]/20 bg-[#513a24]/35 text-[#fffbb6]/80">
                                     {servings} serving{servings === 1 ? '' : 's'}
                                   </span>
                                 )}
                               </span>
                             </span>
                           ) : (
-                            <span className="flex h-full min-h-[58px] items-center justify-center rounded-md border border-dashed border-white/10 text-2xl text-slate-500 transition group-hover:border-emerald-300/40 group-hover:text-emerald-200">
+                            <span className="flex h-full min-h-[58px] items-center justify-center rounded-md border border-dashed border-[#d4a262]/25 text-2xl text-[#d4a262]/65 transition group-hover:border-[#d4a262]/70 group-hover:text-[#fffbb6]">
                               +
                             </span>
                           )}
@@ -602,9 +602,9 @@ export default function Planner() {
       <section className="glass-panel p-4 sm:p-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">Groceries</p>
-            <h2 className="mt-1 text-xl font-semibold text-white">Grocery list</h2>
-            <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4a262]">Groceries</p>
+            <h2 className="mt-1 text-xl font-semibold text-[#fffbb6]">Grocery list</h2>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-[#fffbb6]/80">
               Generated from selected cooking events only. Auto-filled leftover cells are ignored.
             </p>
           </div>
@@ -621,28 +621,28 @@ export default function Planner() {
           <div className="mt-5 grid gap-5">
             {loading ? (
               <div className="grid gap-3">
-                <div className="h-20 animate-pulse rounded-lg bg-white/[0.07]" />
-                <div className="h-20 animate-pulse rounded-lg bg-white/[0.05]" />
+                <div className="h-20 animate-pulse rounded-lg bg-[#d4a262]/15" />
+                <div className="h-20 animate-pulse rounded-lg bg-[#bb8f67]/15" />
               </div>
             ) : loadErrors.grocery ? (
               <div className="rounded-lg border border-red-300/30 bg-red-500/10 p-4 text-sm text-red-100">
                 Grocery data could not be loaded: {loadErrors.grocery}
               </div>
             ) : groceryItemCount === 0 ? (
-              <div className="rounded-lg border border-white/10 bg-slate-950/30 p-4 text-sm text-slate-300">
+              <div className="rounded-lg border border-[#d4a262]/25 bg-[#513a24]/45 p-4 text-sm text-[#fffbb6]/80">
                 No grocery items yet. Select meals in the planner to generate a list.
               </div>
             ) : (
               GROCERY_GROUPS.map((groupName) => (
                 <div className="glass-card p-4" key={groupName}>
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-sm font-semibold tracking-wide text-slate-200">{groupName}</h3>
-                    <span className="status-pill border-white/10 bg-white/[0.05] text-slate-400">
+                    <h3 className="text-sm font-semibold tracking-wide text-[#fffbb6]">{groupName}</h3>
+                    <span className="status-pill border-[#d4a262]/25 bg-[#513a24]/40 text-[#d4a262]">
                       {groceryGroups[groupName].length} item{groceryGroups[groupName].length === 1 ? '' : 's'}
                     </span>
                   </div>
                   {groceryGroups[groupName].length === 0 ? (
-                    <p className="mt-3 text-sm text-slate-500">No ingredients in this group.</p>
+                    <p className="mt-3 text-sm text-[#fffbb6]/55">No ingredients in this group.</p>
                   ) : (
                     <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                       {groceryGroups[groupName].map((item) => {
@@ -653,22 +653,34 @@ export default function Planner() {
 
                         return (
                           <button
-                            className={`min-h-[96px] rounded-lg border p-3 text-left text-sm transition disabled:cursor-wait disabled:opacity-70 ${
+                            className={`min-h-[120px] rounded-lg border p-3 text-left text-sm shadow-lg transition disabled:cursor-wait disabled:opacity-70 ${
                               isOwned
-                                ? 'border-emerald-300/30 bg-emerald-400/15 text-emerald-50 shadow-lg shadow-emerald-950/20 hover:bg-emerald-400/25'
-                                : 'border-red-300/30 bg-red-400/15 text-red-50 shadow-lg shadow-red-950/20 hover:bg-red-400/25'
+                                ? 'border-green-300/75 bg-green-950/75 text-green-50 shadow-green-950/45 hover:border-green-200 hover:bg-green-900/85'
+                                : 'border-red-300/80 bg-red-950/80 text-red-50 shadow-red-950/45 hover:border-red-200 hover:bg-red-900/90'
                             }`}
                             disabled={Boolean(togglingStatusKey)}
                             key={`${item.weekGroup}:${item.ingredientId}`}
                             onClick={() => handleToggleIngredient(item)}
                             type="button"
                           >
-                            <span className="block font-medium">
-                              {item.ingredientName}: {'{'}
-                              {item.dishes.join(', ')}
-                              {'}'}
+                            <span className="block text-base font-semibold leading-5">
+                              {item.ingredientName}
                             </span>
-                            <span className="mt-1 block text-xs opacity-75">
+                            <span className="mt-3 flex flex-wrap gap-1.5">
+                              {item.dishes.map((dishName) => (
+                                <span
+                                  className={`rounded-full border px-2 py-1 text-[11px] font-medium leading-none ${
+                                    isOwned
+                                      ? 'border-green-200/35 bg-green-800/65 text-green-50'
+                                      : 'border-red-200/35 bg-red-800/65 text-red-50'
+                                  }`}
+                                  key={dishName}
+                                >
+                                  {dishName}
+                                </span>
+                              ))}
+                            </span>
+                            <span className="mt-3 block text-xs font-medium opacity-90">
                               {isToggling
                                 ? 'Saving...'
                                 : isOwned
@@ -688,16 +700,16 @@ export default function Planner() {
       </section>
 
       {selectedCell && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/80 px-3 py-3 backdrop-blur-sm sm:items-center sm:px-4 sm:py-6">
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-[#21150b]/85 px-3 py-3 backdrop-blur-sm sm:items-center sm:px-4 sm:py-6">
           <section className="glass-panel max-h-[92vh] w-full max-w-xl overflow-hidden">
-            <div className="border-b border-white/10 bg-white/[0.04] p-4 sm:p-5">
+            <div className="border-b border-[#d4a262]/25 bg-[#513a24]/45 p-4 sm:p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4a262]">
                     Meal selection
                   </p>
-                  <h3 className="mt-1 text-xl font-semibold text-white">Select meal</h3>
-                  <p className="mt-1 text-sm text-slate-300">
+                  <h3 className="mt-1 text-xl font-semibold text-[#fffbb6]">Select meal</h3>
+                  <p className="mt-1 text-sm text-[#fffbb6]/75">
                     {selectedCell.day.label} · {selectedCell.slot.label}
                   </p>
                 </div>
@@ -717,22 +729,22 @@ export default function Planner() {
                   Dishes could not be loaded: {loadErrors.dishes}
                 </div>
               ) : dishes.length === 0 ? (
-                <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4 text-sm text-slate-300">
+                <div className="rounded-lg border border-[#d4a262]/25 bg-[#513a24]/45 p-4 text-sm text-[#fffbb6]/80">
                   No dishes available yet.
                 </div>
               ) : (
                 <div className="grid gap-2">
                   {dishes.map((dish) => (
                     <button
-                      className="min-h-16 rounded-lg border border-white/10 bg-white/[0.05] p-3 text-left transition hover:border-emerald-300/30 hover:bg-emerald-400/10 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="min-h-16 rounded-lg border border-[#d4a262]/25 bg-[#513a24]/45 p-3 text-left transition hover:border-[#d4a262]/60 hover:bg-[#d4a262]/15 disabled:cursor-not-allowed disabled:opacity-60"
                       disabled={saving}
                       key={dish.id}
                       onClick={() => handleSelectDish(dish)}
                       type="button"
                     >
                       <span className="flex items-start justify-between gap-3">
-                        <span className="text-sm font-semibold text-slate-100">{dish.name}</span>
-                        <span className="status-pill shrink-0 border-white/10 bg-white/[0.06] text-slate-300">
+                        <span className="text-sm font-semibold text-[#fffbb6]">{dish.name}</span>
+                        <span className="status-pill shrink-0 border-[#d4a262]/30 bg-[#d4a262]/15 text-[#fffbb6]/85">
                           {dish.servings} serving{dish.servings === 1 ? '' : 's'}
                         </span>
                       </span>
@@ -742,7 +754,7 @@ export default function Planner() {
               )}
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-white/10 bg-white/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-3 border-t border-[#d4a262]/25 bg-[#513a24]/40 p-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 className="danger-button"
                 disabled={saving || !selectedCell.existingCell}
@@ -751,7 +763,7 @@ export default function Planner() {
               >
                 Remove group
               </button>
-              <span className="text-xs text-slate-400">{saving ? 'Saving changes...' : 'Uses dish.servings'}</span>
+              <span className="text-xs text-[#d4a262]/85">{saving ? 'Saving changes...' : 'Uses dish.servings'}</span>
             </div>
           </section>
         </div>
