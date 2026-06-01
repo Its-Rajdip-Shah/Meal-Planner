@@ -27,7 +27,7 @@ const SLOTS = [
   { key: 'dinner', label: 'Dinner' },
 ];
 
-const GROCERY_GROUPS = ['WEEK 1', 'WEEK 2', 'BOTH WEEKS'];
+const GROCERY_GROUPS = ['WEEK 1', 'WEEK 2', 'BOTH WEEKS', 'PANTRY'];
 
 function cellKey(dayIndex, slot) {
   return `${dayIndex}:${slot}`;
@@ -87,6 +87,7 @@ export default function Planner() {
           const existing = byIngredient.get(link.ingredient.id) ?? {
             ingredientId: link.ingredient.id,
             ingredientName: link.ingredient.name,
+            category: link.ingredient.category,
             weeks: new Set(),
             dishes: new Set(),
           };
@@ -103,11 +104,16 @@ export default function Planner() {
     }, {});
 
     byIngredient.forEach((item) => {
-      const group = item.weeks.size > 1 ? 'BOTH WEEKS' : [...item.weeks][0];
+      const group = item.category === 'pantry'
+        ? 'PANTRY'
+        : item.weeks.size > 1
+          ? 'BOTH WEEKS'
+          : [...item.weeks][0];
+
       grouped[group].push({
         ingredientId: item.ingredientId,
         ingredientName: item.ingredientName,
-        weekGroup: group,
+        weekGroup: group === 'PANTRY' ? 'BOTH WEEKS' : group,
         dishes: [...item.dishes].sort((a, b) => a.localeCompare(b)),
       });
     });
@@ -146,7 +152,7 @@ export default function Planner() {
           .order('slot'),
         supabase
           .from('dish_ingredients')
-          .select('dish_id, ingredient:ingredients(id, name)'),
+          .select('dish_id, ingredient:ingredients(id, name, category)'),
         supabase
           .from('ingredient_status')
           .select('id, ingredient_id, week_group, status')
