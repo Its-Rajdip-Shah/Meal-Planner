@@ -655,8 +655,8 @@ export default function Planner() {
                           <button
                             className={`min-h-[120px] rounded-lg border p-3 text-left text-sm shadow-lg transition disabled:cursor-wait disabled:opacity-70 ${
                               isOwned
-                                ? 'border-green-300/75 bg-green-950/75 text-green-50 shadow-green-950/45 hover:border-green-200 hover:bg-green-900/85'
-                                : 'border-red-300/80 bg-red-950/80 text-red-50 shadow-red-950/45 hover:border-red-200 hover:bg-red-900/90'
+                                ? 'border-[#2A5631] bg-[#2A5631] text-white shadow-[#2A5631]/45 hover:border-[#2A5631] hover:bg-[#35683d]'
+                                : 'border-[#C84646] bg-[#C84646] text-white shadow-[#C84646]/45 hover:border-[#C84646] hover:bg-[#b83f3f]'
                             }`}
                             disabled={Boolean(togglingStatusKey)}
                             key={`${item.weekGroup}:${item.ingredientId}`}
@@ -671,8 +671,8 @@ export default function Planner() {
                                 <span
                                   className={`rounded-full border px-2 py-1 text-[11px] font-medium leading-none ${
                                     isOwned
-                                      ? 'border-green-200/35 bg-green-800/65 text-green-50'
-                                      : 'border-red-200/35 bg-red-800/65 text-red-50'
+                                      ? 'border-white/35 bg-[#2A5631] text-white'
+                                      : 'border-white/35 bg-[#C84646] text-white'
                                   }`}
                                   key={dishName}
                                 >
